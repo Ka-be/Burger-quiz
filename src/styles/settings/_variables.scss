@@ -1,0 +1,11 @@
+// Font 
+@font-face {
+  font-family: "main-font";
+  src: url(../../assets/fonts/Inter.ttf);
+}
+
+$main-font: "main-font", sans-serif;
+
+// Colors
+$main-color : #3700B3;
+

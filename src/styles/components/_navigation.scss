@@ -1,0 +1,152 @@
+// Navigation General setup
+
+.navigation {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem;
+	background-color: $main-color;
+
+	ul {
+		width: 100%;
+		text-transform: uppercase;
+		color: hsla(0, 0%, 100%, 0.6);
+		@include flex-evenly;
+	}
+
+	// Active nav-link setup
+
+	.nav-active {
+		color: hsla(0, 0%, 100%, 1);
+		position: relative;
+
+		&::after {
+			content: "";
+			width: 0;
+			height: 3px;
+			background: white;
+			position: absolute;
+			border-radius: 10px;
+			bottom: -5px;
+			left: 50%;
+			transform: translateX(-50%);
+			-webkit-animation: navactive 0.3s ease forwards;
+			animation: navactive 0.3s ease forwards;
+			opacity: 1;
+		}
+	}
+
+	@keyframes navactive {
+		to {
+			width: 100%;
+		}
+	}
+
+	@-webkit-keyframes navactive {
+		to {
+			width: 100%;
+		}
+	}
+
+	// Menu button
+
+	.nav-toggle {
+		display: none;
+		background: none;
+		border: none;
+		cursor: pointer;
+	}
+
+	@media all and (max-width: 800px) {
+		ul {
+			@include hidden;
+		}
+
+		.nav-active {
+			position: relative;
+
+			&::after {
+				@include hidden;
+				-webkit-animation: none;
+				animation: none;
+			}
+		}
+
+		.nav-toggle {
+			display: block;
+		}
+
+		.nav-toggle-icon {
+			// Closed menu button
+			display: block;
+			width: 30px;
+			height: 2px;
+			position: relative;
+			margin-top: -5px; // Offset height button menu relative to 10px position of :before element
+			background: white;
+			transition: transform ease 1s;
+
+			&:before {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 100%;
+				position: relative;
+				top: 10px;
+				background: white;
+			}
+
+			&:after {
+				content: "";
+			}
+		}
+
+		.nav-toggle-icon-open {
+			// Open menu button (X)
+			display: block;
+			width: 30px;
+			height: 2px;
+			position: relative;
+
+			&:before,
+			&:after {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 100%;
+				transform-origin: 15px;
+				position: absolute;
+				background: white;
+				transition: transform ease 1s;
+			}
+
+			&:before {
+				transform: rotate(45deg);
+			}
+
+			&:after {
+				transform: rotate(-45deg);
+			}
+		}
+
+		&.nav-menu-open {
+			ul {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				position: absolute;
+			}
+		}
+
+		.nav-open {
+			@include flex-column-center;
+			background: $main-color;
+			height: 100vh;
+			width: 100vw;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+}
