@@ -24,6 +24,8 @@ a {
 }
 body {
   font-family: "main-font", sans-serif;
+  background: rgb(19, 19, 19);
+  color: white;
 }
 
 h1 {
@@ -35,134 +37,97 @@ p {
   text-align: justify;
 }
 
-.navigation {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  background-color: #3700B3;
-}
-.navigation ul {
-  width: 100%;
-  text-transform: uppercase;
-  color: hsla(0, 0%, 100%, 0.6);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-}
-.navigation .nav-active {
-  color: hsl(0, 0%, 100%);
-  position: relative;
-}
-.navigation .nav-active::after {
-  content: "";
-  width: 0;
-  height: 3px;
-  background: white;
-  position: absolute;
-  border-radius: 10px;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: navactive 0.3s ease forwards;
-  opacity: 1;
-}
-@keyframes navactive {
-  to {
-    width: 100%;
-  }
-}
-.navigation .nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-@media all and (max-width: 800px) {
-  .navigation ul {
-    display: none;
-  }
-  .navigation .nav-active {
-    position: relative;
-  }
-  .navigation .nav-active::after {
-    display: none;
-    animation: none;
-  }
-  .navigation .nav-toggle {
-    display: block;
-  }
-  .navigation .nav-toggle-icon {
-    display: block;
-    width: 30px;
-    height: 2px;
-    position: relative;
-    margin-top: -5px;
-    background: white;
-    transition: transform ease 1s;
-  }
-  .navigation .nav-toggle-icon:before {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    top: 10px;
-    background: white;
-  }
-  .navigation .nav-toggle-icon:after {
-    content: "";
-  }
-  .navigation .nav-toggle-icon-open {
-    display: block;
-    width: 30px;
-    height: 2px;
-    position: relative;
-  }
-  .navigation .nav-toggle-icon-open:before, .navigation .nav-toggle-icon-open:after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    transform-origin: 15px;
-    position: absolute;
-    background: white;
-    transition: transform ease 1s;
-  }
-  .navigation .nav-toggle-icon-open:before {
-    transform: rotate(45deg);
-  }
-  .navigation .nav-toggle-icon-open:after {
-    transform: rotate(-45deg);
-  }
-  .navigation.nav-menu-open ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-  }
-  .navigation .nav-open {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: #3700B3;
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-}
-
 .logo {
   display: flex;
   flex-direction: row;
-  justify-content: space-center;
+  justify-content: center;
   align-items: center;
-  width: 80px;
-  padding-left: 1rem;
+  width: 100%;
   z-index: 2;
+  margin-top: 1em;
+}
+.logo img {
+  width: 100px;
+}
+
+.playercard {
+  width: 90%;
+  height: 50%;
+  background: rgb(58, 58, 58);
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: solid 5px transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.playercard.mayo {
+  border-color: #dbac0c;
+}
+.playercard.ketchup {
+  border-color: #cb2c1b;
+}
+.playercard .playercard-name {
+  text-align: center;
+}
+.playercard .playercard-name input {
+  border: none;
+  height: 60px;
+  border-radius: 10px;
+  width: 80%;
+  margin-top: 1em;
+  opacity: 0.4;
+  padding: 1em;
+}
+.playercard .playercard-name input:focus {
+  opacity: 1;
+  border-inline: none;
+  outline: none;
+}
+.playercard .playercard-team {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+.playercard .playercard-team input {
+  height: 50px;
+  width: 45%;
+  border-radius: 10px;
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  opacity: 0.8;
+}
+.playercard .playercard-team input:nth-child(1) {
+  background: #dbac0c;
+}
+.playercard .playercard-team input:nth-child(2) {
+  background: #cb2c1b;
+}
+.playercard .playercard-team input:hover {
+  opacity: 1;
+}
+.playercard #run-btn {
+  height: 50px;
+  padding: 1em;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: #3c3dab;
+  color: white;
+}
+
+@media screen and (min-width: 960px) {
+  .playercard {
+    width: 50%;
+    height: 40%;
+  }
 }/*# sourceMappingURL=index.css.map */
