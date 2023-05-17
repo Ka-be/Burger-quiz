@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import React, { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const Playercard = () => {
 	const [borderColor, setBorderColor] = useState(""); // État pour stocker la couleur de la bordure
@@ -12,6 +13,7 @@ const Playercard = () => {
 	const ketchupClick = () => {
 		setBorderColor("ketchup");
 	};
+  
 
 	useEffect(() => {
 		const playerNameInput = document.querySelector("#playername");

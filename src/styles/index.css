@@ -74,6 +74,10 @@ p {
 .playercard .playercard-name {
   text-align: center;
 }
+.playercard .playercard-name label {
+  font-size: 0.8em;
+  opacity: 0.6;
+}
 .playercard .playercard-name input {
   border: none;
   height: 60px;

@@ -22,6 +22,11 @@
 	.playercard-name {
 		text-align: center;
 
+    label{
+      font-size: 0.8em;
+      opacity: 0.6;
+    }
+
 		input {
 			border: none;
 			height: 60px;
