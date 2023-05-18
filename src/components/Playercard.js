@@ -58,3 +58,4 @@ const Playercard = () => {
 };
 
 export default Playercard;
+
