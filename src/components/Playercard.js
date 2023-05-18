@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import React, { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Playercard = () => {
 	const [borderColor, setBorderColor] = useState(""); // État pour stocker la couleur de la bordure
-  let [playerName, setPlayerName] = useState("");
+	let [playerName, setPlayerName] = useState("");
 
 	const mayoClick = () => {
 		setBorderColor("mayo"); // Met à jour l'état avec la couleur "mayo"
@@ -13,7 +13,12 @@ const Playercard = () => {
 	const ketchupClick = () => {
 		setBorderColor("ketchup");
 	};
-  
+
+	const navigate = useNavigate();
+
+	const runQuiz = () => {
+		navigate("/quiz");
+	};
 
 	useEffect(() => {
 		const playerNameInput = document.querySelector("#playername");
@@ -45,7 +50,7 @@ const Playercard = () => {
 					onClick={ketchupClick}
 				/>
 			</div>
-			<button type="button" id="run-btn">
+			<button type="button" id="run-btn" onClick={runQuiz}>
 				C'est parti {playerName} !
 			</button>
 		</div>
