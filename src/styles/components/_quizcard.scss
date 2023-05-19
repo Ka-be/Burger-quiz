@@ -1,6 +1,6 @@
 .quizcard {
 	width: 90%;
-	height: 50%;
+	height: 70%;
 	background: rgba(58, 58, 58, 0.65);
 	border-radius: 20px;
 	position: absolute;
@@ -38,10 +38,11 @@
     @include flex-column-evenly;
 
     .answer{
-      width: 80%;
+      width: 100%;
       padding: 1em;
       background: rgb(81, 81, 81);
       opacity: 0.5;
+      font-size: 0.8em;
       border-radius: 10px;
       cursor: pointer;
 
@@ -50,4 +51,12 @@
       }
     }
   }
+}
+
+
+@media screen and (min-width: 960px) {
+	.quizcard .quizcard-answers .answer {
+		width: 70%;
+    font-size: 1em;
+	}
 }
