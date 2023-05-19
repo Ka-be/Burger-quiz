@@ -1,0 +1,53 @@
+.quizcard {
+	width: 90%;
+	height: 50%;
+	background: rgba(58, 58, 58, 0.65);
+	border-radius: 20px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border: solid 5px transparent;
+  padding: 1em;
+
+	&.mayo {
+		border-color: $mayo;
+	}
+
+	&.ketchup {
+		border-color: $ketchup;
+	}
+
+	@include flex-column-evenly;
+
+  .quizcard-question{
+    width: 80%;
+    height: auto;
+    padding: 2em;
+    border-radius: 10px;
+    background: rgb(35, 35, 35);
+    font-weight: 600;
+    font-size: 1.2em;
+    @include flex-center;
+  }
+
+  .quizcard-answers{
+    width: 80%;
+    height: 100%;
+
+    @include flex-column-evenly;
+
+    .answer{
+      width: 80%;
+      padding: 1em;
+      background: rgb(81, 81, 81);
+      opacity: 0.5;
+      border-radius: 10px;
+      cursor: pointer;
+
+      &:hover{
+        opacity: 1;
+      }
+    }
+  }
+}
